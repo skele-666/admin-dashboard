@@ -9,6 +9,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+/* Main container */
 .container {
   display: grid;
   grid-template-areas: "sidebar main";
@@ -20,22 +21,25 @@ svg {
   fill: white;
 }
 
+/* Sidebar */
 .sidebar {
   grid-area: sidebar;
-  background-color: lightblue;
+  background-color: rgb(150, 125, 174);
+  color: white;
+  padding: 10px;
 }
 
 .sidebar-header {
-  display: grid;
-  grid-template-columns: 80px 1fr;
+  display: flex;
   align-items: center;
   padding: 10px;
   grid-gap: 10px;
   margin-bottom: 35px;
 }
 
-.sidebar img {
-  width: 80px;
+.sidebar-header svg {
+  width: 50px;
+  height: 50px;
 }
 
 .nav-item {
@@ -57,12 +61,103 @@ svg {
   margin-bottom: 80px;
 }
 
+/* Main content */
 .main {
   grid-area: main;
   display: grid;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: auto 1fr;
 }
 
+/* Header */
+/* Header top */
+.header-top {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* Search bar */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.search svg {
+  fill: black;
+  width: 30px;
+  height: 30px;
+}
+
+.search input {
+  height: 30px;
+  padding: 0 10px;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.profile-notif {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-notif h1 {
+  font-size: 1.2rem;
+}
+
+.profile-notif img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.notif-button {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.notif-button svg {
+  fill: black;
+}
+
+/* Header bottom */
+.header-bottom {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.profile-greeting {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 40px 10px 10px;
+}
+
+.profile-greeting img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Content area */
 .content {
   display: grid;
   grid-template-areas:

@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0.1px solid red;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+}
+
+svg {
+  fill: white;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: lightblue;
+}
+
+.sidebar-header {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  padding: 10px;
+  grid-gap: 10px;
+  margin-bottom: 35px;
+}
+
+.sidebar img {
+  width: 80px;
+}
+
+.nav-item {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  padding: 10px;
+  grid-gap: 30px;
+  cursor: pointer;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.nav-item:hover {
+  background-color: aqua;
+}
+
+.nav-group.primary-nav {
+  margin-bottom: 80px;
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+}
+
+.content {
+  display: grid;
+  grid-template-areas:
+    "projects announcements"
+    "projects trending";
+  grid-template-columns: 2fr 1fr;
+}
+
+.projects {
+  grid-area: projects;
+}
+
+.announcements {
+  grid-area: announcements;
+}
+
+.trending {
+  grid-area: trending;
+}

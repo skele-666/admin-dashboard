@@ -2,4 +2,4 @@
 
 The aim of this project is to replicate this dashboard layout!
 
-![Uploading image.png…]()
+![Admin Dashboard](image.png)

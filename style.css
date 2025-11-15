@@ -2,23 +2,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 0.1px solid red;
+  /* border: 0.1px solid red; */
 }
 
 body {
   font-family: "Inter", sans-serif;
 }
 
+button {
+  border: none;
+}
+
+button,
+.nav-item {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
 /* Main container */
 .container {
   display: grid;
   grid-template-areas: "sidebar main";
-  grid-template-columns: 300px 1fr;
   height: 100vh;
-}
-
-svg {
-  fill: white;
+  grid-template-columns: 280px 1fr;
 }
 
 /* Sidebar */
@@ -29,32 +35,40 @@ svg {
   padding: 10px;
 }
 
+.sidebar svg {
+  fill: white;
+  cursor: pointer;
+}
+
 .sidebar-header {
   display: flex;
   align-items: center;
   padding: 10px;
-  grid-gap: 10px;
+  gap: 10px;
   margin-bottom: 35px;
 }
 
 .sidebar-header svg {
-  width: 50px;
-  height: 50px;
+  width: 70px;
 }
 
 .nav-item {
   display: grid;
   grid-template-columns: 30px 1fr;
   padding: 10px;
-  grid-gap: 30px;
-  cursor: pointer;
+  gap: 30px;
   align-items: center;
   font-weight: 600;
   font-size: 1.3rem;
 }
 
+.nav-item svg {
+  fill: currentColor;
+  transition: fill 0.3s ease;
+}
+
 .nav-item:hover {
-  background-color: aqua;
+  color: aqua;
 }
 
 .nav-group.primary-nav {
@@ -64,49 +78,45 @@ svg {
 /* Main content */
 .main {
   grid-area: main;
-  display: grid;
-  grid-template-rows: auto 1fr;
 }
 
 /* Header */
 /* Header top */
-.header-top {
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center; */
-  padding: 20px 40px;
+.header {
+  background-color: bisque;
+  padding: 35px 30px 30px 30px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
   gap: 20px;
 }
 
-/* Search bar */
+.header-top {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .search {
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: white;
-  padding: 5px 10px;
   border-radius: 5px;
 }
 
 .search svg {
-  fill: black;
   width: 30px;
   height: 30px;
 }
 
 .search input {
-  height: 30px;
-  padding: 0 10px;
-  font-size: 1rem;
-  flex: 1;
+  width: 300px;
 }
 
 .profile-notif {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .profile-notif h1 {
@@ -121,27 +131,26 @@ svg {
 }
 
 .notif-button {
-  width: 30px;
-  height: 30px;
-  background-color: white;
-  cursor: pointer;
-}
-
-.notif-button svg {
-  fill: black;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
 }
 
 /* Header bottom */
 .header-bottom {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  grid-template-columns: minmax(240px, 2fr) 1fr;
 }
 
 .profile-greeting {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 10px 40px 10px 10px;
+}
+
+.profile-greeting h1 {
+  font-size: 1.65rem;
 }
 
 .profile-greeting img {
@@ -155,6 +164,28 @@ svg {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  margin: 0 10px;
+}
+
+.actions button {
+  padding: 10px;
+  border-radius: 30px;
+  font-family: inherit;
+}
+
+.search input,
+.actions button {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border: none;
+  height: 30px;
+  font-size: 1rem;
+  border-radius: 23px;
+  padding-left: 10px;
+  height: 40px;
+}
+
+.actions button:hover {
+  background-color: rgb(207, 203, 203);
 }
 
 /* Content area */
@@ -168,6 +199,32 @@ svg {
 
 .projects {
   grid-area: projects;
+  padding: 20px;
+}
+
+.projects h1 {
+  margin-bottom: 20px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  padding: 10px;
+}
+
+.project-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.project-actions button {
+  width: 30px;
+  background-color: white;
 }
 
 .announcements {
@@ -176,4 +233,39 @@ svg {
 
 .trending {
   grid-area: trending;
+}
+
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .header-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-greeting {
+    justify-content: center;
+  }
+
+  .content {
+    grid-template-areas:
+      "projects"
+      "announcements"
+      "trending";
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 915px) {
+  .profile-greeting {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    grid-template-areas:
+      "sidebar"
+      "main";
+    grid-template-columns: 1fr;
+  }
 }

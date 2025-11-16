@@ -23,7 +23,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 0.5px solid red; */
 }
 
 body {
@@ -35,7 +34,6 @@ body {
   height: 100vh;
 }
 
-/* Generic interactive element baseline */
 button,
 .nav-item {
   border: none;
@@ -244,8 +242,6 @@ button,
   grid-area: projects;
   display: flex;
   flex-direction: column;
-  min-height: 0;
-  /* allow children to shrink / enable proper scrolling */
 }
 
 /* Grid of project cards — fills remaining vertical space in .projects */
@@ -255,15 +251,11 @@ button,
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  min-height: 0;
-  /* prevents overflow when used inside flex containers */
 }
 
-/* Single project card visual */
 .project-card {
   padding: 30px 20px 20px 25px;
   background: linear-gradient(90deg, #22c55e 0 7px, #fff 7px 100%);
-  /* visual accent stripe */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -275,7 +267,6 @@ button,
   margin-bottom: 5px;
 }
 
-/* Project action buttons */
 .project-actions {
   display: flex;
   justify-content: flex-end;
@@ -319,7 +310,6 @@ button,
   gap: 20px;
 }
 
-/* Visual separators for announcement list */
 .announcement-card:nth-of-type(1),
 .announcement-card:nth-of-type(2) {
   padding-bottom: 20px;
